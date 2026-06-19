@@ -1,5 +1,5 @@
 #Esto sirve para ingnorar todas las imagenes .png
-*.png
+#*.png
 #Esto sirve para ocultar una carpeta
 oculto/
 #Esto sirve para ignorar un archivo especifico
