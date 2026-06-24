@@ -1,0 +1,28 @@
+    /*Selecionando una etiqueta HTML*/
+    p {
+        background-color: crimson; rgb(0,0,0);
+        /*Color de Texto*/
+        color: blanchedalmond;
+        /*Tamaño de texto*/
+        font-size: 24px;
+        /*Familia de Tpigrafia*/
+        font-family: Arial, Helvetica, sans-serif;
+        /*ancho*/
+        width: 50%;
+        /*alto*/
+        height: 100px;
+        /*Borde*/
+        border: 2px groove rgb(232, 158, 10)
+    }
+    /*Selecionando un Etiqueta*/
+    .parrafo-personalizado {
+        background-color: forestgreen;
+        width: 80%;
+    }
+    /*Selecionando un ID*/
+    #texto-especial {
+          background-color: beige;
+    }
+    .texto-azul {
+        color: blue;
+    }
