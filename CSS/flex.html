@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        }
+        .centrar{
+            display: flex;
+            flex-direction: column;
+            /*maneja el eje primario del elemento
+            puede usar el start(incio), end(final) y center (centrado)
+            */
+            justify-content: center;
+            /*maneja el eje secundario*/
+            align-items: center;
+            gap: 20px;
+            background-color: darkgreen; 
+            height: 100vh;
+            color: white;
+            /*width: 100vw
+            vh = viewport height (alto del navegador)
+            vw = viewport width (ancho del navegador)
+            */ 
+        }
+    </style>
+</head>
+<body>
+    <section class="centrar">
+        <h1>Este es un titular</h1> 
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Nemo numquam consequatur minus veniam voluptatem magnam in. 
+            Nemo ut dolorem est molestiae officiis provident, molestias 
+            tempore numquam ad, voluptatum delectus fuga!
+        </p>
+        <button>Presioname</button>
+    </section>
+</body>
+</html>
+
+<!--
+    crear una seccion con un  titular que diga NOTICIERA. El contenido de este
+    debe de estar centrado verticalmente y horizontalmente.
+    abajo de este, debe de haber una fila con tres columnas. entre cada columna debe de haber un gap de 20px.
+
+    Cada columna de de tener una imagen, un titular, un parrafo de texto y un boton. el contenido de
+    cada columna debe de estar centrado verticalmente y debe de haber un gap entre los elementos
+    de 15px.
+-->
