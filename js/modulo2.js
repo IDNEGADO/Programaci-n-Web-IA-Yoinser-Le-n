@@ -478,3 +478,183 @@ invetario = {
   Ejercicio
   Crea un programa que imprima de forma organizada el inventario con sus categorias, subcategorias y productos.
 */
+
+for (let categoria in inventario) {
+  console.log('Categoria : ' + categoria);
+  for (let subcategoria in inventario[categoria]) {
+    console.log(' sub-categoria: ' + subcategoria);
+    let lista = inventario[categoria][subcategoria];
+    for (let producto of lista) {
+      console.log('    producto: ' + producto.nombre);
+
+      if (producto.variantes) {
+        for (let variante of producto.variantes) {
+          console.log('       * Variante: ' + variante.nombre);
+          console.log('         precio:' + variante.precio);
+          console.log('         Cantidad: ' + variante.cantidad);
+        }
+      } else {
+        // Si es un producto normal (como la res, el pollo o la mozzarella)
+        console.log('      precio: ' + producto.precio);
+        console.log('      Cantidad : ' + producto.cantidad);
+      }
+    }
+  }
+}
+
+//HOSTING
+/* 
+  El hoisting es un comportamiento de JavaScript en el que las 
+  declaraciones de variables y funciones se mueven a la parte 
+  superior de su contexto de ejecución antes de que se ejecute el código. 
+  Esto significa que puedes usar variables y funciones antes de 
+  declararlas en tu código.
+*/
+//ej
+console.log(miVariable); // undefined
+var miVariable = 10;
+console.log(miVariable); // 10
+
+//METODOS DE STRINGS Y ARRAYS
+"Hola Mundo".length //10
+let prueba = "Hola Mundo";
+console.log(prueba.length); //10
+//Transformar a mayusculas
+console.log(prueba.toUpperCase()); //HOLA MUNDO
+//Transformar a minusculas
+console.log(prueba.toLowerCase()); //hola mundo
+console.log(prueba) //Hola Mundo
+//Obtener el indice de una palabra o caracter
+console.log(prueba.indexOf("Mundo")); //5
+//Obtener el ultimo indice de una palabra o caracter
+console.log(prueba.lastIndexOf("o"));
+//Obtener una parte de un string
+console.log(prueba.slice(0, 4)); //Hola
+//Reemplazar una palabra o caracter
+console.log(prueba.replace("Mundo", "Amigo")); //Hola Amigo
+//Reemplazar todas las palabras o caracteres
+console.log(prueba.replaceAll("o", "a"));
+//Convertir un string en un array
+let prueba2 = "Hola Mundo";
+console.log(prueba2.split(" ")); //["Hola", "Mundo"].length
+//Corregir espacios al inicio y al final de un string
+console.log(prueba2.trim()); //Hola Mundo
+//Cortar un string
+console.log(prueba2.substring(0, 4)); //Hola
+
+//Metodos de arrays
+let array = ["manzana", "banana", "naranja"];
+//Agregar un elemento al final del array
+array.push("pera"); //["manzana", "banana", "naranja", "pera"]
+console.log(array);
+//Agregar un elemento al inicio del array
+array.unshift("kiwi"); //["kiwi", "manzana", "banana", "naranja", "pera"]
+console.log(array);
+array[2] = "sandia"; //["kiwi", "manzana", "sandia", "naranja", "pera"]
+//Eliminar el ultimo elemento del array
+array.pop(); //["kiwi", "manzana", "sandia", "naranja"]
+console.log(array);
+//Eliminar el primer elemento del array
+array.shift(); //["manzana", "sandia", "naranja"]
+console.log(array);
+//Eliminar un elemento en una posicion especifica
+array.splice(1, 1); //["manzana", "naranja"]
+console.log(array);
+//Eliminar un elemento en una posicion especifica y agregar otro
+array.splice(1, 1, "fresa"); //["manzana", "fresa"]
+console.log(array);
+//Saber si un elemento existe en un array
+console.log(array.includes("banana")); //false
+//saber si el elemento es un array
+console.log(Array.isArray(array)); //true
+
+
+/*
+  CALLBACKS
+  Es una funcion que se pasa como argumento a otra funcion y se ejecuta dentro de esa funcion.
+*/
+//ejemplo
+function imprimirNombre(nombre, validar) {
+  if (validar(nombre)) {
+    console.log("Hola " + nombre);
+  } else {
+    console.log("No se puede imprimir el nombre");
+  }
+}
+
+function validarNombre(nombre) {
+  nombre = nombre.trim().toLowerCase();
+  return nombre.length > 0 && nombre !== "juan";
+}
+
+imprimirNombre("juan", validarNombre); // No se puede imprimir el nombre
+imprimirNombre("Pedro", validarNombre); // Hola Pedro
+imprimir("Hola", "Pedro");
+
+//metodos de array avanzados
+//filtrar un array
+let carros = [
+  { marca: "Toyota", modelo: "Corolla", año: 2020 },
+  { marca: "Honda", modelo: "Civic", año: 2019 },
+  { marca: "Ford", modelo: "Mustang", año: 2021 },
+  { marca: "Chevrolet", modelo: "Camaro", año: 2020 }
+];
+
+let carrosFiltrados = carros.filter(function (carro) {
+  return carro.año === 2020;
+});
+console.log(carrosFiltrados); // [{ marca: "Toyota", modelo: "Corolla", año: 2020 }, { marca: "Chevrolet", modelo: "Camaro", año: 2020 }]
+
+//mapear un array
+let carrosMapeados = carros.map(function (carro) {
+  return `${carro.marca} ${carro.modelo}`;
+});
+console.log(carrosMapeados); // ["Toyota Corolla", "Honda Civic", "Ford Mustang", "Chevrolet Camaro"]
+
+//recorrer un array
+carros.forEach(function (carro) {
+  console.log(`${carro.marca} ${carro.modelo}`);
+});
+
+//DOCUMENTACION PROFESIONAL, ARRAY FUNCTIONS
+
+/**
+ * @function sumar
+ * @description Esta función toma dos números como parámetros y devuelve su suma.
+ * @param {number} a - El primer número a sumar.
+ * @param {number} b - El segundo número a sumar.
+ * @returns {number} La suma de los dos números proporcionados.
+ * @author Juan Rodriguez
+ */
+function sumar(a, b) {
+  return a + b;
+}
+
+sumar(5, 10); // 15
+/*
+let variableConFuncion = function (a, b) {
+  return a + b;
+}
+*/
+let variableConFuncion = (a, b) => {
+  return a + b;
+}
+
+/*
+  EJERCICIOS
+
+  1) Crea un programa para jugar piedra papel o tijera, que me permita jugar contra la computadora 
+  debe tener un contador de victorias para cada jugar, ademas debe de mostrar un historial de las ultimas 5 partidas.
+  2) Crea un programa que me permita ingresar un string y me devuelva la cantidad de
+  vocales que tiene el string, la cantidad de palabras que tiene, y la cantidad de caracteres que tiene.
+  3) Crea un programa que me permita ingresar un string y me indique cuantas veces se repite cada palabra.
+  4) Crea un programa que el cual me permita ingresar una palabra y me devuelva la palabra
+  invertida
+  5) Crea un programa que me permita verifica si dos palabras son palindromo, es decir, 
+  que se leen de igual forma de izquierda a derecha o de derecha a izquierda.
+  fecha de entrega: 14/08/26
+*/
+
+//Como generar un numero aleatorio entre 0 y 2
+let numeroAleatorio = Math.floor(Math.random() * 3); //0.2315
+console.log(numeroAleatorio); // 1, 2 o 3
